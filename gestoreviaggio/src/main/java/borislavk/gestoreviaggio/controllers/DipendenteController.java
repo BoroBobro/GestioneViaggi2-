@@ -2,6 +2,7 @@ package borislavk.gestoreviaggio.controllers;
 
 import borislavk.gestoreviaggio.entities.Dipendente;
 import borislavk.gestoreviaggio.repositories.DipendenteRepository;
+import borislavk.gestoreviaggio.services.DipendenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -16,12 +17,14 @@ public class DipendenteController {
 
     @Autowired
     private DipendenteRepository dipendenteRepository;
+    private DipendenteService dipendenteService;
 
     @PostMapping
     public ResponseEntity<Dipendente> creaDipendente(@RequestBody @Validated Dipendente dipendente) {
         Dipendente salvato = dipendenteRepository.save(dipendente);
         return ResponseEntity.ok(salvato);
     }
+
 
     @GetMapping
     public List<Dipendente> getAll() {

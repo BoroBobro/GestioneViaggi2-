@@ -5,7 +5,9 @@ import borislavk.gestoreviaggio.exeptions.UnauthorizedException;
 import borislavk.gestoreviaggio.payloads.LoginDTO;
 import borislavk.gestoreviaggio.tools.JWTTools;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AuthService {
 
     @Autowired

@@ -25,7 +25,7 @@ public class Dipendente {
     @GeneratedValue
     private UUID id;
 
-    @Column(unique = true, nullable = false)
+    @Column
     private String username;
 
     @NotBlank
@@ -40,10 +40,11 @@ public class Dipendente {
 
     private String password;
 
-    public Dipendente(String nome, String email, String cognome, String password) {
+    public Dipendente(String nome, String cognome, String email, String password) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.password = password;
+        this.username = nome.toLowerCase() + "." + cognome.toLowerCase();
     }
 }

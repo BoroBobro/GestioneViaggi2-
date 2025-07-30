@@ -27,7 +27,6 @@ public class DipendenteService {
             throw new BadRequestException("L'email" + dipendente.getEmail() + "è già in uso!");
         });
         Dipendente newDipendente = new Dipendente(payload.name(), payload.surname(), payload.email(), payload.password());
-
         Dipendente savedDipendente = this.dipendenteRepository.save(newDipendente);
         log.info("L'utente con id: " + savedDipendente.getId() + "è stato salvato correttamente!");
         return savedDipendente;
